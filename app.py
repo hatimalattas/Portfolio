@@ -12,18 +12,26 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 app.config.from_object('config')
 
+mail = Mail()
+app.config["MAIL_SERVER"] = "smtp-mail.outlook.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = 'alattas96@outlook.com'
+app.config["MAIL_PASSWORD"] = '1996Ha()'
 
-app.config.update(dict(
-    DEBUG = True,
-    MAIL_SERVER = 'smtp.gmail.com',
-    MAIL_PORT = 587,
-    MAIL_USE_TLS = True,
-    MAIL_USE_SSL = False,
-    MAIL_USERNAME = '7atem96@gmail.com',
-    MAIL_PASSWORD = '(1996)Ha',
-))
+mail.init_app(app)
 
-mail = Mail(app)
+# app.config.update(dict(
+#     DEBUG = True,
+#     MAIL_SERVER = 'smtp.gmail.com',
+#     MAIL_PORT = 587,
+#     MAIL_USE_TLS = True,
+#     MAIL_USE_SSL = False,
+#     MAIL_USERNAME = '7atem96@gmail.com',
+#     MAIL_PASSWORD = '(1996)Ha',
+# ))
+
+# mail = Mail(app)
 
 ##########################
 ####### ROUTES ###########
