@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request, flash, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from forms import ContactForm, csrf
+from forms import ContactForm
 from flask_mail import Mail, Message
 
 
@@ -11,19 +11,7 @@ from flask_mail import Mail, Message
 ##########################
 app = Flask(__name__)
 app.config.from_object('config')
-# db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
-# csrf.init_app(app)
 
-
-mail = Mail()
-app.config["MAIL_SERVER"] = "smtp.gmail.com"
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = 'alattas96@outlook.com'
-app.config["MAIL_PASSWORD"] = '1996Ha()'
-
-mail.init_app(app)
 
 app.config.update(dict(
     DEBUG = True,
