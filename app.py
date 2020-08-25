@@ -2,25 +2,40 @@ import os
 from flask import Flask, render_template, request, flash, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from forms import ContactForm
+from forms import ContactForm, csrf
 from flask_mail import Mail, Message
+
 
 ##########################
 #### APP CONFIG. ######
 ##########################
 app = Flask(__name__)
 app.config.from_object('config')
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+# db = SQLAlchemy(app)
+# migrate = Migrate(app, db)
+csrf.init_app(app)
+
 
 mail = Mail()
-# app.config["MAIL_SERVER"] = "smtp.gmail.com"
-# app.config["MAIL_PORT"] = 465
-# app.config["MAIL_USE_SSL"] = True
-# app.config["MAIL_USERNAME"] = '7atem96@gmail.com'
-# app.config["MAIL_PASSWORD"] = '(1996)Ha'
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = '7atem96@gmail.com'
+app.config["MAIL_PASSWORD"] = '(1996)Ha'
 
 mail.init_app(app)
+
+app.config.update(dict(
+    DEBUG = True,
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 587,
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL = False,
+    MAIL_USERNAME = '7atem96@gmail.com',
+    MAIL_PASSWORD = '(1996)Ha',
+))
+
+mail = Mail(app)
 
 ##########################
 ####### ROUTES ###########
