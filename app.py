@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config.from_object('config')
 # db = SQLAlchemy(app)
 # migrate = Migrate(app, db)
-csrf.init_app(app)
+# csrf.init_app(app)
 
 
 mail = Mail()
