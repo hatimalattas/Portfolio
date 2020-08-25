@@ -19,7 +19,7 @@ app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_USERNAME"] = 'alattas96@outlook.com'
 app.config["MAIL_PASSWORD"] = '1996Ha()'
 
-mail.init_app(app)
+# mail.init_app(app)
 
 app.config.update(dict(
     DEBUG = True,
