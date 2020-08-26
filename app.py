@@ -11,15 +11,19 @@ from flask_mail import Mail, Message
 ##########################
 app = Flask(__name__)
 app.config.from_object('config')
+# db = SQLAlchemy(app)
+# migrate = Migrate(app, db)
+# csrf.init_app(app)
+
 
 mail = Mail()
-# app.config["MAIL_SERVER"] = "smtp.googlemail.com"
-# app.config["MAIL_PORT"] = 465
-# app.config["MAIL_USE_SSL"] = True
-# app.config["MAIL_USERNAME"] = '7atem96@gmail.com'
-# app.config["MAIL_PASSWORD"] = '(1996)Ha'
+app.config["MAIL_SERVER"] = "smtp-mail.outlook.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = 'alattas96@outlook.com'
+app.config["MAIL_PASSWORD"] = '1996Ha()'
 
-# mail.init_app(app)
+mail.init_app(app)
 
 app.config.update(dict(
     DEBUG = True,
@@ -47,7 +51,7 @@ def index():
             return render_template('index.html', form=form)
 
         else:
-          msg = Message('Message from my portfolio website', sender='7atem96@gmail.com', recipients=['alattas96@outlook.com'])
+          msg = Message('Message from my portfolio website', sender='alattas96@outlook.com', recipients=['7atem96@gmail.com'])
           msg.body = """
           From: %s %s <%s>
           %s
