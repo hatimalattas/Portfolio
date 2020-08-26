@@ -13,25 +13,25 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 mail = Mail()
-app.config["MAIL_SERVER"] = "smtp.googlemail.com"
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = '7atem96@gmail.com'
-app.config["MAIL_PASSWORD"] = '(1996)Ha'
+# app.config["MAIL_SERVER"] = "smtp.googlemail.com"
+# app.config["MAIL_PORT"] = 465
+# app.config["MAIL_USE_SSL"] = True
+# app.config["MAIL_USERNAME"] = '7atem96@gmail.com'
+# app.config["MAIL_PASSWORD"] = '(1996)Ha'
 
-mail.init_app(app)
+# mail.init_app(app)
 
-# app.config.update(dict(
-#     DEBUG = True,
-#     MAIL_SERVER = 'smtp.gmail.com',
-#     MAIL_PORT = 587,
-#     MAIL_USE_TLS = True,
-#     MAIL_USE_SSL = False,
-#     MAIL_USERNAME = '7atem96@gmail.com',
-#     MAIL_PASSWORD = '(1996)Ha',
-# ))
+app.config.update(dict(
+    DEBUG = True,
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 587,
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL = False,
+    MAIL_USERNAME = '7atem96@gmail.com',
+    MAIL_PASSWORD = '(1996)Ha',
+))
 
-# mail = Mail(app)
+mail = Mail(app)
 
 ##########################
 ####### ROUTES ###########
