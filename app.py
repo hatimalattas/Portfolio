@@ -11,10 +11,11 @@ from flask_wtf.csrf import CSRFProtect
 #### APP CONFIG. ######
 ##########################
 app = Flask(__name__)
-app.config.from_object('config')
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 csrf = CSRFProtect(app)
-# set configuration and instantiate mail
 
+# set configuration and instantiate mail
 mail_settings = {
     "MAIL_SERVER": 'smtp.office365.com',
     "MAIL_PORT": 587,
@@ -61,4 +62,4 @@ def download_file():
   return send_file(path,as_attachment=True)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug = True)
