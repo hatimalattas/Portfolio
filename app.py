@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from forms import ContactForm
 from flask_mail import Mail, Message
+# from sendgrid import SendGridAPIClient
+# from sendgrid.helpers.mail import Mail
 
 
 ##########################
@@ -13,8 +15,6 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 # set configuration and instantiate mail
-
-
 mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
     "MAIL_PORT": 465,
@@ -24,11 +24,20 @@ mail_settings = {
     "MAIL_PASSWORD": os.environ['EMAIL_PASSWORD']
 }
 
-print(os.environ['EMAIL_USER'])
-print(os.environ['EMAIL_PASSWORD'])
-
 app.config.update(mail_settings)
 mail = Mail(app)
+
+# mail_settings = {
+#     "MAIL_SERVER": 'smtp.sendgrid.net',
+#     "MAIL_PORT": 465,
+#     "MAIL_USERNAME": os.environ['EMAIL_USER'],
+#     "MAIL_PASSWORD": os.environ['EMAIL_PASSWORD'],
+#     "USERNAME": 'apikey',
+#     "PASSWORD": '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'
+# }
+
+# app.config.update(mail_settings)
+# mail = Mail(app)
 
 # mail_settings = {
 #     "MAIL_SERVER": 'smtp.office365.com',
@@ -105,3 +114,10 @@ if __name__ == '__main__':
         #   %s
         #   """ % (form.name.data, form.phone.data, form.email.data, form.message.data)
         #   mail.send(msg)
+
+            #         msg = Message(subject="Hello",
+            #             sender=app.config.get("MAIL_USERNAME"),
+            #             recipients=["alattas96@outlook.com"], # replace with your email for testing
+            #             body="This is a test email I sent with Gmail and Python!")
+
+            # mail.send(msg)
