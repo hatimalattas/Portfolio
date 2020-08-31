@@ -11,31 +11,39 @@ from flask_mail import Mail, Message
 ##########################
 app = Flask(__name__)
 app.config.from_object('config')
-# db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
-# csrf.init_app(app)
 
-
-mail = Mail()
-app.config["MAIL_SERVER"] = "smtp-mail.outlook.com"
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = 'alattas96@outlook.com'
-app.config["MAIL_PASSWORD"] = '1996Ha()'
-
-mail.init_app(app)
-
-app.config.update(dict(
-    DEBUG = True,
-    MAIL_SERVER = 'smtp.gmail.com',
-    MAIL_PORT = 587,
-    MAIL_USE_TLS = True,
-    MAIL_USE_SSL = False,
-    MAIL_USERNAME = '7atem96@gmail.com',
-    MAIL_PASSWORD = '(1996)Ha',
-))
-
+# set configuration and instantiate mail
+mail_settings = {
+    "MAIL_SERVER": 'smtp.office365.com',
+    "MAIL_PORT": 587,
+    "MAIL_USE_TLS": True,
+    "MAIL_USE_SSL": False,
+    "MAIL_USERNAME": os.environ['EMAIL_USER'],
+    "MAIL_PASSWORD": os.environ['EMAIL_PASSWORD']
+}
+app.config.update(mail_settings)
 mail = Mail(app)
+
+# mail = Mail()
+# app.config["MAIL_SERVER"] = "smtp-mail.outlook.com"
+# app.config["MAIL_PORT"] = 465
+# app.config["MAIL_USE_SSL"] = True
+# app.config["MAIL_USERNAME"] = 'alattas96@outlook.com'
+# app.config["MAIL_PASSWORD"] = '1996Ha()'
+
+# mail.init_app(app)
+
+# app.config.update(dict(
+#     DEBUG = True,
+#     MAIL_SERVER = 'smtp.gmail.com',
+#     MAIL_PORT = 587,
+#     MAIL_USE_TLS = True,
+#     MAIL_USE_SSL = False,
+#     MAIL_USERNAME = '7atem96@gmail.com',
+#     MAIL_PASSWORD = '(1996)Ha',
+# ))
+
+# mail = Mail(app)
 
 ##########################
 ####### ROUTES ###########
