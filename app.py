@@ -4,13 +4,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from forms import ContactForm
 from flask_mail import Mail, Message
+from flask_wtf.csrf import CSRFProtect
+
 
 ##########################
 #### APP CONFIG. ######
 ##########################
 app = Flask(__name__)
 app.config.from_object('config')
-
+csrf = CSRFProtect(app)
 # set configuration and instantiate mail
 
 mail_settings = {
