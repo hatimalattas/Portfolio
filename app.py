@@ -55,7 +55,7 @@ def index():
 
 @app.route('/download')
 def download_file():
-  path = "HatimAlattasResume-SE.pdf"
+  path = "./static/assets/HatimAlattasResume-ECE.pdf"
   return send_file(path,as_attachment=True)
 
 if __name__ == '__main__':
