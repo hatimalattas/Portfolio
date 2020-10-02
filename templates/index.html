@@ -200,7 +200,7 @@
           </div>
 
           <!-- Portfolio Item 4-->
-          <div class="col-md-6 col-lg-4 mb-5">
+          <!-- <div class="col-md-6 col-lg-4 mb-5">
             <div
               class="portfolio-item mx-auto"
               data-toggle="modal"
@@ -221,9 +221,9 @@
                 alt="Simon-Game.png"
               />
             </div>
-          </div>
+          </div> -->
           <!-- Portfolio Item 5-->
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <!-- <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <div
               class="portfolio-item mx-auto"
               data-toggle="modal"
@@ -244,10 +244,10 @@
                 alt="Drum-kit.png"
               />
             </div>
-          </div>
+          </div> -->
 
           <!-- Portfolio Item 6-->
-          <div class="col-md-6 col-lg-4">
+          <!-- <div class="col-md-6 col-lg-4">
             <div
               class="portfolio-item mx-auto"
               data-toggle="modal"
@@ -270,7 +270,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
     <!-- About Section-->
     <section class="page-section bg-primary text-white mb-0" id="about">
@@ -341,8 +341,10 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {% endfor %} {% endif %} {% endwith %} {% for field in form.errors %} {%
-        for error in form.errors[field] %}
+        {% endfor %} {% endif %} {% endwith %} 
+        
+        {% for field in form.errors %} 
+        {%for error in form.errors[field] %}
         <div
           class="alert alert-danger alert-dismissible fade show"
           role="alert"
@@ -357,7 +359,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {% endfor %} {% endfor %}
+        {% endfor %} 
+        {% endfor %}
 
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -467,6 +470,7 @@
         ><i class="fa fa-chevron-up"></i
       ></a>
     </div>
+
     <!-- Portfolio Modals-->
     <!-- Portfolio Modal 1-->
     <div
@@ -651,7 +655,7 @@
     </div>
 
     <!-- Portfolio Modal 4-->
-    <div
+    <!-- <div
       class="portfolio-modal modal fade"
       id="portfolioModal4"
       tabindex="-1"
@@ -709,9 +713,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Portfolio Modal 5-->
-    <div
+    <!-- <div
       class="portfolio-modal modal fade"
       id="portfolioModal5"
       tabindex="-1"
@@ -769,10 +773,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Portfolio Modal 6-->
-    <div
+    <!-- <div
       class="portfolio-modal modal fade"
       id="portfolioModal6"
       tabindex="-1"
@@ -833,7 +837,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script

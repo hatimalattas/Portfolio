@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm, CsrfProtect
+from flask_wtf import FlaskForm
 from wtforms import TextField,TextAreaField,SubmitField
 from wtforms.validators import DataRequired, Email
 
