@@ -28,8 +28,6 @@ mail = Mail(app)
 ##########################
 ####### ROUTES ###########
 ##########################
-
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = ContactForm()
