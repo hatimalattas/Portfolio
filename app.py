@@ -11,6 +11,7 @@ from flask_mail import Mail, Message
 ##########################
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(32)
+port = int(os.environ.get("PORT", 5000))
 
 # set configuration and instantiate mail
 mail_settings = {
@@ -59,4 +60,4 @@ def download_file():
   return send_file(path,as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True,host='0.0.0.0',port=port)
